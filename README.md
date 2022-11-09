@@ -101,6 +101,14 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 ```
+## man_1_simple_shell
+
+Man page for the Simple man_1_simple_shell
+
+To access manpage format:
+```
+man ./man_1_simple_shell
+```
 
 ## Authors
 
