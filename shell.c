@@ -33,6 +33,23 @@ int main(int ac, char **av, char **env)
 			else
 				execve(str[0], str, env);
 		}
+		if (_strcmp(lineptr, "pwd\n") == 0)
+		{
+			char cwd[1024];
+			getcwd(cwd, sizeof(cwd));
+			printf("%s", cwd);
+			printf("\n");
+		}
+		if (_strcmp(lineptr, "env\n") == 0)
+		{
+			extern char **environ;
+			char **s = environ;
+
+			for (; *s; s++)
+			{
+				printf("%s\n", *s);
+			}
+		}
 	}
-	return(0);
+	return (0);
 }
