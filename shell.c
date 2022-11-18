@@ -2,10 +2,15 @@
 /**
  * main - Entry point
  */
-int main(void)
+int main(int ac, char **av, char **env)
 {
+	int status;
 	char *lineptr = NULL;
 	size_t n = 0;
+	pid_t pid_child;
+	char **str;
+	(void)ac;
+	(void)av;
 
 	while (1)
 	{
@@ -17,13 +22,17 @@ int main(void)
 		{
 			exit(0);
 		}
-		if (_strcmp(lineptr, "pwd\n") == 0)
+		str = split_line(lineptr);
+		if (str[0] != NULL)
 		{
-			char cwd[1024];
-			getcwd(cwd, sizeof(cwd));
-			printf("%s", cwd);
-			printf("\n");
+			pid_child = fork();
+			if (pid_child != 0)
+			{
+				wait(&status);
+			}
+			else
+				execve(str[0], str, env);
 		}
 	}
-	return (0);
+	return(0);
 }
