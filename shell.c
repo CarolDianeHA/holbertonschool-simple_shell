@@ -22,20 +22,14 @@ int main(int ac, char **av, char **env)
 			printf("$ ");
 		if (getline(&lineptr, &n, stdin) == -1)
 			break;
-		if (_strcmp(lineptr, "exit\n") == 0)
+		str = split_line(lineptr);
+		if (_strcmp(str[0], "exit\n") == 0)
 		{
 			printf("Good bye!\n");
-			free(lineptr);
+			free(str);
 			exit(0);
 		}
-		else if (_strcmp(lineptr, "pwd\n") == 0)
-		{
-			char cwd[1024];
-			getcwd(cwd, sizeof(cwd));
-			printf("%s", cwd);
-			printf("\n");
-		}
-		else if (_strcmp(lineptr, "env\n") == 0)
+		else if (_strcmp(str[0], "env\n") == 0)
 		{
 			extern char **environ;
 			char **s = environ;
@@ -44,10 +38,8 @@ int main(int ac, char **av, char **env)
 			{
 				printf("%s\n", *s);
 			}
-			exit(0);
 		}
-		str = split_line(lineptr);
-		if (str[0] != NULL)
+		else
 		{
 			pid_child = fork();
 			if (pid_child != 0)
