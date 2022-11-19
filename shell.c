@@ -49,7 +49,8 @@ int main(int ac, char **av, char **env)
 			else
 				execve(str[0], str, env);
 		}
-	free(str);
 	}
+	free(lineptr);
+	free(str);
 	return (0);
 }
