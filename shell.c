@@ -25,7 +25,6 @@ int main(int ac, char **av, char **env)
 		str = split_line(lineptr);
 		if (_strcmp(str[0], "exit\n") == 0)
 		{
-			printf("Good bye!\n");
 			free(str);
 			exit(0);
 		}
