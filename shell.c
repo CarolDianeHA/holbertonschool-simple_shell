@@ -26,7 +26,7 @@ int main(int ac, char **av, char **env)
 		if (_strcmp(str[0], "exit\n") == 0)
 		{
 			free(str);
-			exit(0);
+			exit(EXIT_SUCCESS);
 		}
 		else if (_strcmp(str[0], "env\n") == 0)
 		{
