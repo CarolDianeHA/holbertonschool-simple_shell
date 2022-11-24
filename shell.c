@@ -34,17 +34,13 @@ int main(int ac, char **av, char **env)
 			char **s = environ;
 
 			for (; *s; s++)
-			{
 				printf("%s\n", *s);
-			}
 		}
 		else
 		{
 			pid_child = fork();
 			if (pid_child != 0)
-			{
 				wait(&status);
-			}
 			else
 				execve(str[0], str, env);
 		}
