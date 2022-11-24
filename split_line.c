@@ -2,7 +2,7 @@
 
 /**
 *split_line- split string in to tokens
-*lineptr: input
+*@lineptr: input
 *Return: str, needs to be free
 */
 
