@@ -36,6 +36,10 @@ int main(int ac, char **av, char **env)
 			for (; *s; s++)
 				printf("%s\n", *s);
 		}
+		else if (_strcmp(str[0], "stdin\n") == 0)
+		{
+			exit(EXIT_SUCCESS);
+		}
 		else
 		{
 			pid_child = fork();
