@@ -16,4 +16,7 @@
 int _putchar(char c);
 int _strcmp(char *s1, char *s2);
 char **split_line(char *lineptr);
+char *concat_str_dir(char *array, char *command);
+char **get_path(char **env);
+char *getDir(char **path, char **command);
 #endif
