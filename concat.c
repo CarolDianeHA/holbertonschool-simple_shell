@@ -3,7 +3,7 @@
 /**
  * concat_str_dir - concat token and value
  * @array: token
- * @val: value
+ * @command: value
  * Return: new string
  */
 
