@@ -52,13 +52,11 @@ int main(int ac, char **av, char **env)
 			}
 			else
 				CONCAT = str[0];
-		
 		pid_child = fork();
 		if (pid_child != 0)
 			wait(&status);
 		else
 			execve(CONCAT, str, env);
-		
 		}
 	}
 	free(lineptr);
