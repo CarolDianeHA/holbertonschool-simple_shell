@@ -1,10 +1,10 @@
 #include "main.h"
 /**
  * main - Entry point
- * @ac: ...
- * @av: ...
- * @env: ...
- * Return: ...
+ * @ac: argument count
+ * @av: argument vector
+ * @env: pointer to pointer
+ * Return: output
  */
 int main(int ac, char **av, char **env)
 {
