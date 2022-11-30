@@ -9,9 +9,10 @@
 int main(int ac, char **av, char **env)
 {
 	int status;
-	char *lineptr = NULL;
+	char *lineptr = NULL, **PATH = NULL, *DIRE, *CONCAT;
 	size_t n = 0;
 	pid_t pid_child;
+	struct stat buf;
 	char **str;
 	(void)ac;
 	(void)av;
@@ -40,13 +41,24 @@ int main(int ac, char **av, char **env)
 		{
 			exit(EXIT_SUCCESS);
 		}
-		else
+		if (str[0] != NULL)
 		{
-			pid_child = fork();
-			if (pid_child != 0)
-				wait(&status);
+			if (stat(str[0], &buf) == -1)
+			{
+				PATH = get_path(env);
+				DIRE = getDir(PATH, str);
+				if (DIRE != NULL)
+					CONCAT = concat_str_dir(DIRE, str[0]);
+			}
 			else
-				execve(str[0], str, env);
+				CONCAT = str[0];
+		
+		pid_child = fork();
+		if (pid_child != 0)
+			wait(&status);
+		else
+			execve(CONCAT, str, env);
+		
 		}
 	}
 	free(lineptr);
