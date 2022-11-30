@@ -21,6 +21,6 @@ char **split_line(char *lineptr)
 		str[num] = strtok(NULL, delim);
 	}
 
-	return(str);
+	return (str);
 }
 
