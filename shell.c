@@ -29,6 +29,15 @@ int main(int ac, char **av, char **env)
 			free(str);
 			exit(EXIT_SUCCESS);
 		}
+		else if (_strcmp(str[0], "env\n") == 0)
+		{
+			extern char **environ;
+			char **s = environ;
+
+			for (; *s; s++)
+				printf("%s\n", *s);
+			break;
+		}
 		else if (_strcmp(str[0], "stdin\n") == 0)
 		{
 			exit(EXIT_SUCCESS);
