@@ -39,7 +39,7 @@ $
 <!-- * `access` (man 2 access) -->
 <!-- * `chdir` (man 2 chdir) -->
 <!-- * `close` (man 2 close) -->
-<!-- * `closedir` (man 3 closedir) -->
+* `closedir` (man 3 closedir)
 * `execve` (man 2 execve)
 * `exit` (man 3 exit)
 <!-- * `_exit` (man 2 _exit) -->
@@ -53,13 +53,13 @@ $
 <!-- * `kill` (man 2 kill) -->
 * `malloc` (man 3 malloc)
 <!-- * `open` (man 2 open) -->
-<!-- * `opendir` (man 3 opendir) -->
+* `opendir` (man 3 opendir)
 <!-- * `perror` (man 3 perror) -->
 <!-- * `read` (man 2 read) -->
-<!-- * `readdir` (man 3 readdir) -->
+* `readdir` (man 3 readdir)
 <!-- * `signal` (man 2 signal) -->
 * `_strdup` (man 3 strdup)
-<!-- * `stat` (__xstat) (man 2 stat) -->
+* `stat` (__xstat) (man 2 stat)
 <!-- * `lstat` (__lxstat) (man 2 lstat) -->
 <!-- * `fstat` (__fxstat) (man 2 fstat) -->
 * `strtok` (man 3 strtok)
