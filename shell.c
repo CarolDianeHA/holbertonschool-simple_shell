@@ -36,12 +36,9 @@ int main(int ac, char **av, char **env)
 
 			for (; *s; s++)
 				printf("%s\n", *s);
-<<<<<<< HEAD
 			continue;
-=======
 			free(str);
-			continue;			
->>>>>>> ec034c8d3a06a1a257bb2dcdde7d33ed316e0242
+			continue;
 		}
 		else if (_strcmp(str[0], "stdin\n") == 0)
 		{
@@ -63,13 +60,9 @@ int main(int ac, char **av, char **env)
 			if (pid_child != 0)
 			{
 				wait(&status);
-<<<<<<< HEAD
-
-=======
 				free(str);
 				str = NULL;
 			}
->>>>>>> ec034c8d3a06a1a257bb2dcdde7d33ed316e0242
 			else
 			{	
 				if(execve(CONCAT, str, env))
