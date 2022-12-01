@@ -53,6 +53,10 @@ int main(int ac, char **av, char **env)
 				if (DIRE != NULL)
 					CONCAT = concat_str_dir(DIRE, str[0]);
 			}
+			if (DIRE == NULL)
+			{
+				continue;;
+			}
 			else
 				CONCAT = str[0];
 			pid_child = fork();
