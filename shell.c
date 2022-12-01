@@ -36,7 +36,7 @@ int main(int ac, char **av, char **env)
 
 			for (; *s; s++)
 				printf("%s\n", *s);
-			break;
+			continue;
 		}
 		else if (_strcmp(str[0], "stdin\n") == 0)
 		{
@@ -56,8 +56,17 @@ int main(int ac, char **av, char **env)
 			pid_child = fork();
 			if (pid_child != 0)
 				wait(&status);
+
 			else
-				execve(CONCAT, str, env);
+			{	
+				if(execve(CONCAT, str, env))
+				{	
+						if (stat(str[0], &buf) == -1)
+					{
+							perror("execve");
+					}
+				}
+			}
 		}
 	}
 	free(lineptr);
