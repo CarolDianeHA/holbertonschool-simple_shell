@@ -69,7 +69,7 @@ int main(int ac, char **av, char **env)
 				{	
 						if (stat(str[0], &buf) == -1)
 					{
-							perror("execve");
+							perror(str[0]);
 					}
 				}
 			}
