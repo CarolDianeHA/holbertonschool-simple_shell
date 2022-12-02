@@ -1,6 +1,30 @@
 .TH SIMPLE_SHELL 1 "03 December 2022" "1.0" "custom man page"
 .SH NAME
-.B  SIMPLE_SHELL
+simple_shell 
+
+.SH SYNOPSIS
+.B #include\ "main.h"
+
+.B ./hsh
+
+[echo command] | ./hsh - When using it in non- interactive mode
+
+.SH DESCRIPTION
+.B simple_shell - 
+Is a basic form of shell, which will handle most of the regular commands that the shell uses.
+
+.SH Built-in commands
+env - Will print the enviroment received in the shell.
+
+pwd - Will print the current working directory.
+
+exit - Will exit out of the shell.
+
+.SH RETURN VALUE
+Return 0 if it was succesful
+
+.SH BUGS
+Memory leaks
 
 
 .SH AUTHOR
