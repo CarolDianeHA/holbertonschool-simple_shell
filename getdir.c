@@ -6,13 +6,13 @@
  * @patharray: array of directories in the path
  * @commandlineArgs: user input
  *
- * Return: directory containing the binary
+ * Return: directory 
  */
 
 char *getDir(char **patharray, char **commandlineArgs)
 {
 	DIR *directory = NULL;
-	struct dirent *binaryFiles = NULL;
+	struct dirent *structdir = NULL;
 	int count;
 
 	for (count = 0; patharray[count] != NULL; count++)
@@ -21,9 +21,9 @@ char *getDir(char **patharray, char **commandlineArgs)
 		if (directory == NULL)
 			return (NULL);
 
-		while ((binaryFiles = readdir(directory)) != NULL)
+		while ((structdir = readdir(directory)) != NULL)
 		{
-			if (_strcmp(binaryFiles->d_name, commandlineArgs[0]) == 0)
+			if (_strcmp(structdir->d_name, commandlineArgs[0]) == 0)
 			{
 				closedir(directory);
 				return (patharray[count]);
