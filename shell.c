@@ -53,25 +53,37 @@ int main(int ac, char **av, char **env)
 				DIRE = getDir(PATH, str);
 				if (DIRE != NULL)
 					CONCAT = concat_str_dir(DIRE, str[0]);
+				else
+				{
+					perror(str[0]);
+					free(str);
+					continue;
+				}
 			}
 			else
 				CONCAT = str[0];
-			pid_child = fork();
-			if (pid_child != 0)
+		}
+		pid_child = fork();
+		if (pid_child != 0)
+		{
+			wait(&status);
+			free(str);
+			str = NULL;
+		}
+		else
+		{
+
+			if (execve(CONCAT, str, env))
 			{
-				wait(&status);
-				free(str);
-				str = NULL;
-			}
-			else
-			{	
-				if(execve(CONCAT, str, env))
-				{	
-						if (stat(str[0], &buf) == -1)
+
+				{
+					if (stat(str[0], &buf) == -1)
 					{
-							perror(str[0]);
+						perror(str[0]);
 					}
 				}
+				free(str);
+				free(lineptr);
 			}
 		}
 	}
