@@ -29,7 +29,7 @@ int main(int ac, char **av, char **env)
 			free(str);
 			exit(EXIT_SUCCESS);
 		}
-		else if (_strcmp(str[0], "env\n") == 0)
+		if (_strcmp(str[0], "env\n") == 0)
 		{
 			extern char **environ;
 			char **s = environ;
@@ -40,10 +40,10 @@ int main(int ac, char **av, char **env)
 			free(str);
 			continue;
 		}
-		else if (_strcmp(str[0], "stdin\n") == 0)
+		if (_strcmp(str[0], "stdin\n") == 0)
 		{
 			free(str);
-			exit(0);
+			exit(EXIT_SUCCESS);
 		}
 		if (str[0] != NULL)
 		{
@@ -56,7 +56,6 @@ int main(int ac, char **av, char **env)
 				else
 				{
 					perror(str[0]);
-					free(str);
 					continue;
 				}
 			}
@@ -67,8 +66,6 @@ int main(int ac, char **av, char **env)
 		if (pid_child != 0)
 		{
 			wait(&status);
-			free(str);
-			str = NULL;
 		}
 		else
 		{
@@ -82,12 +79,12 @@ int main(int ac, char **av, char **env)
 						perror(str[0]);
 					}
 				}
-				free(str);
-				free(lineptr);
 			}
 		}
 	}
 	free(lineptr);
+	lineptr = NULL;
 	free(str);
+	str = NULL;
 	return (0);
 }
