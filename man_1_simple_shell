@@ -16,10 +16,9 @@ Is a basic form of shell, which will handle most of the regular commands that th
 .SH Built-in commands
 env - Will print the enviroment received in the shell.
 
-pwd - Will print the current working directory.
-
 exit - Will exit out of the shell.
 
+Ctrl+D - Will exit out of shell.
 .SH RETURN VALUE
 Return 0 if it was succesful
 
