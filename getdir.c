@@ -6,7 +6,7 @@
  * @patharray: array of directories in the path
  * @commandlineArgs: user input
  *
- * Return: directory 
+ * Return: directory
  */
 
 char *getDir(char **patharray, char **commandlineArgs)
