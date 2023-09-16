@@ -1,4 +1,7 @@
-# Project Description
+# Project Title
+Simple Shell
+
+## Project Description
 
 This project consists in write a simple UNIX command interpreter.
 
@@ -7,13 +10,10 @@ This project consists in write a simple UNIX command interpreter.
 * Unix shell
 * Thompson shell
 * Ken Thompson
-* Everything you need to know to start coding your own shell
-* Team work
-* Github contribution
 
 ## Output
 
-* Unless specified otherwise, your program must have the exact same output as `sh` (`/bin/sh`) as well as the exact same error output.
+* Unless specified otherwise, this program must have the exact same output as `sh` (`/bin/sh`) as well as the exact same error output.
 * The only difference is when you print an error, the name of the program must be equivalent to your `argv[0]` (See below)
 
 Example of error with `sh`:
